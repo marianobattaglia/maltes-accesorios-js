@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +27,7 @@ body {
 }
 
 .logo-header {
-    padding: 1rem;
+    padding: 0.5rem;
 
     display: flex;
     flex-direction: row;
@@ -51,18 +49,22 @@ header .sub-header {
     padding: 0.5rem;
 }
 
+.cont-navegador {
+    background-color: var(--gris1);
+}
 
 #navegador {
-    background-color: var(--gris1);
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content:center;
     gap: 50px;
     padding: 10px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 #navegador li {
-    list-style:none
+    list-style: none;
 }
 
 header a {
@@ -73,7 +75,8 @@ header a {
 header a:hover {
     color: var(--rosa);
     text-decoration: underline;
-    font-weight: bold;
+    text-shadow: 0px 0px 10px var(--rosa) ;
+    /*font-weight:bold; (reemplazado por text-shadow ya que traia problemas)*/
 }
 
 /* VISTA CENTRAL */
@@ -113,7 +116,7 @@ header a:hover {
 
 
 .bloque-central {
-    height: 50vh;
+    height: 60vh;
     max-width: 100%;
     background-image: url(imagenes/imagen-central.jpg);
     background-position: center center;
@@ -179,6 +182,7 @@ header a:hover {
 .texto-central a:hover {
     text-decoration: underline;
     font-weight: bold;
+    text-shadow: 0px 0px 10px var(--rosa);
 }
 
 
@@ -186,7 +190,7 @@ header a:hover {
 footer header {
     font-style: italic;
     font-weight: bold;
-
+    padding-bottom: 5px;
 }
 
 .footers {
@@ -217,14 +221,15 @@ footer li {
 
 footer a {
     text-decoration: none;
-    color: var(--gris2);
+    color: var(--gris1);
 
 }
 
 footer a:hover {
-    color: var(--rosa);
+    color: var(--gris2);
     text-decoration: underline;
-    font-weight: bold;
+    text-shadow: 0px 0px 10px var(--rosa);
+    /*font-weight: bold;*/
 }
 
 .footer-1 {
@@ -238,7 +243,8 @@ footer a:hover {
     padding: 30px;
 
     background: rgb(255,255,255);
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);}
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);
+}
 
 .footer-2 {
     background-color: rgba(149, 165, 166, 0.2);
@@ -311,6 +317,11 @@ header .iconos {
     color: var(--gris1);
 }
 
+#navbar h3 {
+    font-style: italic;
+    padding-bottom: 10px;
+}
+
 #navbar li {
     list-style: none;
 }
@@ -322,9 +333,10 @@ header .iconos {
 
 
 #navbar a:hover {
-    color: var(--rosa);
+    color: var(--gris2);
     text-decoration: underline;
-    font-weight: bold;
+    text-shadow: 0px 0px 10px var(--rosa);
+    /*font-weight: bold;*/
 }
 
 
@@ -411,10 +423,22 @@ button, .button {
     border-radius: 3px;
 }
 
-button:hover, .button:hover, button:focus, .button:focus {
+button:hover, .button:hover {
     background-color: var(--rosa);
     border-color: var(--rosa);
     font-weight:bolder;
+}
+
+button:focus, .button:focus {
+    border-color: var(--rosa);
+    box-shadow: 0px 0px 0px 1px var(--rosa);
+    animation: anim-shadow .3s forwards;
+}
+
+@keyframes anim-shadow {
+    100% {
+        box-shadow: 0px 0px 50px 20px rgba(112, 111, 211, 0);
+    }
 }
 
 
