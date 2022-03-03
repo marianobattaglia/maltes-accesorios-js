@@ -11,7 +11,7 @@ body {
           box-sizing: border-box;
 }
 
-/* Setup de Variables con root
+/* Setup de Variables con root (reemplazado por variables SCSS)
 :root{ 
     --gris1: #919191;
     --gris2:  #646464;
@@ -51,7 +51,8 @@ body {
 }
 
 #logo-maltes {
-  height: 100px;
+  height: 50px;
+  margin: 1rem;
 }
 
 header h1 {
@@ -73,7 +74,6 @@ header a:hover {
   color: #FCCEFE;
   text-decoration: underline;
   text-shadow: 0px 0px 10px #FCCEFE;
-  /*font-weight:bold; (reemplazado por text-shadow ya que traia problemas)*/
 }
 
 .cont-navegador {
@@ -129,13 +129,8 @@ header a:hover {
   /*transformacion*/
 }
 
-/*
-.box-productos {
-    padding: 1rem;
-}
-*/
 .bloque-central {
-  height: 60vh;
+  height: 70vh;
   max-width: 100%;
   background-image: url(../imagenes/imagen-central.jpg);
   background-position: center center;
@@ -173,6 +168,7 @@ header a:hover {
           animation-duration: 2s;
   -webkit-animation-name: aparecer1;
           animation-name: aparecer1;
+  font-weight: bold;
 }
 
 .texto-central a {
@@ -233,6 +229,18 @@ header a:hover {
   }
 }
 
+.bloque__descuentos {
+  background-color: #919191;
+}
+
+.bloque__descuentos h2 {
+  font-size: x-large;
+  color: white;
+  padding: 10px;
+  margin: 20px 0 0 0;
+  text-align: center;
+}
+
 /* FOOTER */
 footer header {
   font-style: italic;
@@ -257,34 +265,11 @@ footer a:hover {
   /*font-weight: bold;*/
 }
 
-.footers {
-  padding: 2rem;
-}
-
-.footers div {
-  padding: 0.5rem 0 0.5rem 0;
-}
-
 .footers .iconos {
   padding-right: 6px;
 }
 
-.li-icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-}
-
-.footer-1 {
+.footers .footer-1 {
   color: #646464;
   font-weight: bold;
   display: -webkit-box;
@@ -298,9 +283,23 @@ footer a:hover {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 100px;
-  padding: 30px;
-  background: white;
+  padding: 5rem;
+  margin: 0;
   background: radial-gradient(circle, white 0%, #ededed 100%);
+}
+
+.li-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.li-icon p {
+  padding: 0;
+  margin: 0;
 }
 
 .footer-2 {
@@ -317,9 +316,14 @@ footer a:hover {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 250px;
+  padding: 4rem;
 }
 
-.footer-2c ul {
+.footer-2 ul {
+  padding: 0px;
+}
+
+.footer-2 .footer-2c ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -336,6 +340,7 @@ footer a:hover {
   background-color: #95a5a6;
   color: black;
   text-align: center;
+  padding: 3rem;
 }
 
 .footer-3 ul {
@@ -385,6 +390,11 @@ header .iconos {
 #navbar {
   color: #919191;
   padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
 }
 
 #navbar h3 {
@@ -425,12 +435,12 @@ header .iconos {
 .info-contacto {
   color: #919191;
   font-style: italic;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .formulario-contacto {
   width: 800px;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .div-formulario {
@@ -454,24 +464,32 @@ fieldset h3 {
   font-style: italic;
 }
 
-fieldset
-.form-label {
-  padding-bottom: 10px;
+fieldset {
+  border: 1px solid #646464;
+  -webkit-box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45);
+          box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45);
 }
 
-fieldset
-.form-label .field {
+fieldset .form-label {
+  margin-bottom: 0.5rem;
+}
+
+fieldset .form-label .field {
   border: solid 1px #919191;
   outline: none;
   padding: 10px;
   font-family: "Roboto", sans-serif;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
-fieldset
-.form-label .field:focus, fieldset
-.form-label .field:hover {
+fieldset .form-label .field:focus, fieldset .form-label .field:hover {
   border-color: #FCCEFE;
+}
+
+.barra-busqueda {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .barra-busqueda .form-control {
@@ -481,6 +499,7 @@ fieldset
   font-family: "Roboto", sans-serif;
   border-radius: 3px;
   width: 60vh;
+  margin-right: 1rem;
 }
 
 .form-control:focus, .form-control:hover {
@@ -622,6 +641,11 @@ button:focus, .button:focus {
   padding: 25px;
 }
 
+.perfil h3 {
+  text-align: center;
+  margin: 1rem;
+}
+
 /* GRID PRODUCTOS */
 .navbar {
   -ms-grid-row: 1;
@@ -638,7 +662,20 @@ button:focus, .button:focus {
       grid-template-columns: 2fr 3fr 3fr 3fr;
   width: 90%;
   margin: 0 auto;
-  /*centrado del grid respecto del padre*/
+  /*centrado del grid respecto del padre */
+  padding-bottom: 2rem;
+}
+
+/* Carrousel */
+.container h3 {
+  color: #3f3f3f;
+  font-size: x-large;
+  padding-bottom: 1rem;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-name: aparecer2;
+          animation-name: aparecer2;
+  font-weight: bold;
 }
 
 /* 
