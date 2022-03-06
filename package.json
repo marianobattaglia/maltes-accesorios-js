@@ -1,0 +1,20 @@
+{
+  "name": "maltes-accesorios",
+  "version": "1.0.0",
+  "description": "Tienda online de Maltes Accesorios. Venta de aros, argollas, cadenas, conjuntos, tobilleras, anillos, y demas accesorios en plata 925",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass --watch scss:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marianobattaglia/maltes-accesorios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marianobattaglia/maltes-accesorios/issues"
+  },
+  "homepage": "https://github.com/marianobattaglia/maltes-accesorios#readme"
+}
