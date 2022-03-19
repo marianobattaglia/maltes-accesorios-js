@@ -16,14 +16,17 @@
     border: 1px solid white;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45);
     color: $col-gris1;
-    width: 200px;
+    width: 18rem;
     text-align: center;
     font-style: italic;
     margin: 20px;
     padding: 1rem;
     transition: transform 500ms ease; /*tiempo de transicion*/
     img {
-        height: 200px;
+        width: 15rem;
+        height: 15rem;
+        object-fit:cover;
+        object-position: 0 25%;
     }
 }
 
@@ -188,7 +191,7 @@ header .iconos {
     .formulario-contacto {
         width: 800px;
         padding: 2rem;
-    }    
+    }
 }
 
 .div-formulario {
