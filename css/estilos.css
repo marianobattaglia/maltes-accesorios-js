@@ -11221,7 +11221,7 @@ footer a:hover {
     gap: 100px;
     padding: 5rem;
     margin: 0;
-    background: radial-gradient(circle, white 0%, #ededed 100%);
+    background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(237, 237, 237) 100%);
   }
 
   .li-icon {
@@ -11278,7 +11278,7 @@ footer a:hover {
     gap: 100px;
     padding: 5rem;
     margin: 0;
-    background: radial-gradient(circle, white 0%, #ededed 100%);
+    background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(237, 237, 237) 100%);
   }
 
   .li-icon {
@@ -11521,7 +11521,7 @@ header .iconos {
 fieldset {
   padding: 1.5rem;
   color: #646464;
-  background: radial-gradient(circle, #ffe7f2 0%, #fce9c1 100%);
+  background: radial-gradient(circle, rgb(255, 231, 242) 0%, rgb(252, 233, 193) 100%);
   border-radius: 10px;
   font-size: 17px;
 }
