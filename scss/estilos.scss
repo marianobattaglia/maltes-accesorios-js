@@ -138,7 +138,7 @@ header .iconos {
 /* NAVEGADOR - PRODUCTOS */
 #navbar {
     color: $col-gris1;
-    padding: 2rem;
+    padding-top: 2rem;
     display: flex;
     align-content: flex-start;
     h3 {
@@ -399,6 +399,18 @@ button:focus, .button:focus {
 /* GRID PRODUCTOS */
 .navbar {
     grid-area: navbar;
+    .barra-flex {
+        .carrito-compras {
+            padding-top: 2rem;
+            p {
+                margin: 0;
+                font-style: italic;
+            }
+            li {
+                font-weight: bold;
+            }
+        }
+    }
 }
 
 .grid-productos {

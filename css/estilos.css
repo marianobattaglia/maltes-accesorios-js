@@ -11458,7 +11458,7 @@ header .iconos {
 /* NAVEGADOR - PRODUCTOS */
 #navbar {
   color: #919191;
-  padding: 2rem;
+  padding-top: 2rem;
   display: flex;
   align-content: flex-start;
 }
@@ -11717,6 +11717,16 @@ button:focus, .button:focus {
 /* GRID PRODUCTOS */
 .navbar {
   grid-area: navbar;
+}
+.navbar .barra-flex .carrito-compras {
+  padding-top: 2rem;
+}
+.navbar .barra-flex .carrito-compras p {
+  margin: 0;
+  font-style: italic;
+}
+.navbar .barra-flex .carrito-compras li {
+  font-weight: bold;
 }
 
 .grid-productos {
