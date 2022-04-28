@@ -409,6 +409,13 @@ button:focus, .button:focus {
             li {
                 font-weight: bold;
             }
+            #totales {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        #carrito {
+            padding-bottom: 1rem;
         }
     }
 }

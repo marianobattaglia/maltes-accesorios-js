@@ -11728,6 +11728,13 @@ button:focus, .button:focus {
 .navbar .barra-flex .carrito-compras li {
   font-weight: bold;
 }
+.navbar .barra-flex .carrito-compras #totales {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar .barra-flex #carrito {
+  padding-bottom: 1rem;
+}
 
 .grid-productos {
   display: grid;

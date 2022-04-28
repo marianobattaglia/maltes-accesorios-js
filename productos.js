@@ -122,7 +122,30 @@ function respuestaOk(id) {
         default:
             console.log('An error has occurred');
     }
+    //Agrego item carrito del Sidebar
     lineaCarrito.innerHTML = `${nombreProducto} x $${precioProducto}`;
     padre.appendChild(lineaCarrito);
-    alert(`Has agregado 1 ${nombreProducto} al carrito`);
+
+    //Agrego al JSON
+
+
+    //Sweetalert2 Animation
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        })
+
+        Toast.fire({
+        icon: 'success',
+        title: 'Agregaste un producto al carrito'
+        })
+        
+
 }
+
+//Agrego al storage
+//const productos = [{producto: nombreProducto, precio: precioProducto}]
+//const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+//guardarLocal(producto.id, JSON.stringify(producto));
