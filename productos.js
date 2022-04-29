@@ -27,6 +27,10 @@ let input06  = document.getElementById("prod-name-6");
 input06.innerText = producto6.nombre
 */
 
+//Variables DOM 
+let precioTotal = document.getElementById("precio-total");
+let precioActual = 0
+
 //JSON para Productos
 const productos = [{ id: 1,  producto: "Aros Swarovski", precio: 1850},
                   {  id: 2,  producto: "Cjto. corazón Cristal", precio: 2350},
@@ -122,12 +126,18 @@ function respuestaOk(id) {
         default:
             console.log('An error has occurred');
     }
+
+    let ingresarLinea = `${nombreProducto} x $${precioProducto}`
     //Agrego item carrito del Sidebar
-    lineaCarrito.innerHTML = `${nombreProducto} x $${precioProducto}`;
+    lineaCarrito.innerHTML = ingresarLinea;
     padre.appendChild(lineaCarrito);
 
-    //Agrego al JSON
-
+    //Agrego al TOTAL
+    precioActual += precioProducto;
+    console.log(precioActual);
+    precioTotal.innerHTML = precioActual
+    //Almaceno TOTAL en Storage para luego darle una funcionalidad
+    sessionStorage.setItem('precioTotal', precioActual)
 
     //Sweetalert2 Animation
     const Toast = Swal.mixin({
@@ -142,10 +152,4 @@ function respuestaOk(id) {
         title: 'Agregaste un producto al carrito'
         })
         
-
 }
-
-//Agrego al storage
-//const productos = [{producto: nombreProducto, precio: precioProducto}]
-//const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
-//guardarLocal(producto.id, JSON.stringify(producto));
