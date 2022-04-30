@@ -29,7 +29,7 @@ input06.innerText = producto6.nombre
 
 //Variables DOM 
 let precioTotal = document.getElementById("precio-total");
-let precioActual = 0
+let precioActual = 0;
 
 //JSON para Productos
 const productos = [{ id: 1,  producto: "Aros Swarovski", precio: 1850},
@@ -138,6 +138,8 @@ function respuestaOk(id) {
     precioTotal.innerHTML = precioActual
     //Almaceno TOTAL en Storage para luego darle una funcionalidad
     sessionStorage.setItem('precioTotal', precioActual)
+    //Si precioActual es distinto que 0 aparece el carrito
+    chequearPrecio()
 
     //Sweetalert2 Animation
     const Toast = Swal.mixin({
@@ -153,3 +155,27 @@ function respuestaOk(id) {
         })
         
 }
+
+let divCarrito = document.getElementsByClassName("carrito-compras");
+
+function chequearPrecio() {
+    (precioActual === 0) ? ocultarCarrito() : mostrarCarrito();
+}
+
+function ocultarCarrito() {
+    document.getElementById("carrito-compras").style.display = 'none';
+}
+
+function mostrarCarrito() {
+    document.getElementById("carrito-compras").style.display = 'block';
+}
+
+
+//Desestructuracion
+const nombres = ["Aros Swarovski", "Cjto. corazón Cristal", "Argollitas con bolitas", "Anillo luna"]
+
+const [a, b] = nombres
+
+console.log(a) // "Aros Swarovski"
+console.log(b) // "Cjto. corazón Cristal"
+console.log(...nombres); // Aros Swarovski Cjto. corazón Cristal Argollitas con bolitas Anillo luna

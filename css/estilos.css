@@ -11720,6 +11720,7 @@ button:focus, .button:focus {
 }
 .navbar .barra-flex .carrito-compras {
   padding-top: 2rem;
+  display: none;
 }
 .navbar .barra-flex .carrito-compras p {
   margin: 0;
