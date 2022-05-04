@@ -1,0 +1,8 @@
+[
+    {"id": 1,  "producto": "Aros Swarovski", "precio": 1850},
+    {"id": 2,  "producto": "Cjto. corazón Cristal", "precio": 2350},
+    {"id": 3,  "producto": "Argollitas con bolitas", "precio": 1990},
+    {"id": 4,  "producto": "Anillo luna" , "precio": 1250},
+    {"id": 5,  "producto": "Aros corazón Blanco" , "precio": 1850},
+    {"id": 6,  "producto": "Conjunto ojo protector" , "precio": 2150}
+]

@@ -1,57 +1,27 @@
-/* // SECCION ELIMINADA DEBIDO A LA IMPLEMENTACION DE JSON
-function Producto(nombre, precio, cantidad) {
-    this.nombre  = nombre;
-    this.precio  = parseFloat(precio);
-    this.cantidad = parseFloat(cantidad);
-}
-
-const producto1 = new Producto("Aros Swarovski", 1850);
-const producto2 = new Producto("Cjto. corazón Cristal", 2350);
-const producto3 = new Producto("Argollitas con bolitas", 1990);
-const producto4 = new Producto("Anillo luna", 1250);
-const producto5 = new Producto("Aros corazón Blanco", 1850);
-const producto6 = new Producto("Conjunto ojo protector", 2150);
-
-// Change - previo a JSON
-let input01  = document.getElementById("prod-name-1");
-input01.innerHTML = producto1.nombre
-let input02  = document.getElementById("prod-name-2");
-input02.innerText = producto2.nombre
-let input03  = document.getElementById("prod-name-3");
-input03.innerText = producto3.nombre
-let input04  = document.getElementById("prod-name-4");
-input04.innerText = producto4.nombre
-let input05  = document.getElementById("prod-name-5");
-input05.innerText = producto5.nombre
-let input06  = document.getElementById("prod-name-6");
-input06.innerText = producto6.nombre
-*/
 
 //Variables DOM 
 let precioTotal = document.getElementById("precio-total");
 let precioActual = 0;
 
-//JSON para Productos
-const productos = [{ id: 1,  producto: "Aros Swarovski", precio: 1850},
-                  {  id: 2,  producto: "Cjto. corazón Cristal", precio: 2350},
-                  {  id: 3,  producto: "Argollitas con bolitas"  , precio: 1990},
-                  {  id: 4,  producto: "Anillo luna" , precio: 1250},
-                  {  id: 5,  producto: "Aros corazón Blanco" , precio: 1850},
-                  {  id: 6,  producto: "Conjunto ojo protector" , precio: 2150}];
-
-const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
-//Almacenar producto por producto
-for (const producto of productos) {
-    guardarLocal(producto.id, JSON.stringify(producto));
-}
+//HTTP Request "GET" de ./productos.json
+let myRequest = new Request("./productos.json")
+fetch(myRequest)
+.then((resp) => resp.json())
+.then(data => {
+    const guardarLocal = (clave, valor) => { sessionStorage.setItem(clave, valor) };
+    //Almacenar producto por producto
+    for (const producto of data) {
+        guardarLocal(producto.id, JSON.stringify(producto));
+    }
+})
 
 // Genero variables tomando los elementos JSON para luego utilizarlos en el DOM
-let item1 = localStorage.getItem('1')
-let item2 = localStorage.getItem('2')
-let item3 = localStorage.getItem('3')
-let item4 = localStorage.getItem('4')
-let item5 = localStorage.getItem('5')
-let item6 = localStorage.getItem('6')
+let item1 = sessionStorage.getItem('1')
+let item2 = sessionStorage.getItem('2')
+let item3 = sessionStorage.getItem('3')
+let item4 = sessionStorage.getItem('4')
+let item5 = sessionStorage.getItem('5')
+let item6 = sessionStorage.getItem('6')
 
 // Change
 let input01  = document.getElementById("prod-name-1");
