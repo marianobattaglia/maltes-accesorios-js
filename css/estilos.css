@@ -11717,6 +11717,7 @@ button:focus, .button:focus {
 /* GRID PRODUCTOS */
 .navbar {
   grid-area: navbar;
+  min-width: 200px;
 }
 .navbar .barra-flex .carrito-compras {
   padding-top: 2rem;
@@ -11726,12 +11727,30 @@ button:focus, .button:focus {
   margin: 0;
   font-style: italic;
 }
+.navbar .barra-flex .carrito-compras ul {
+  padding-left: 2px;
+  margin: 0;
+}
 .navbar .barra-flex .carrito-compras li {
   font-weight: bold;
 }
 .navbar .barra-flex .carrito-compras #totales {
   display: flex;
   justify-content: space-between;
+}
+.navbar .barra-flex .carrito-compras .botones-carrito {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 50px;
+  text-align: center;
+  padding-top: 1rem;
+}
+.navbar .barra-flex .carrito-compras .botones-carrito .clear {
+  margin: 0 5px 0 5px;
+}
+.navbar .barra-flex .carrito-compras .botones-carrito .buy {
+  margin: 0 5px 0 5px;
 }
 .navbar .barra-flex #carrito {
   padding-bottom: 1rem;

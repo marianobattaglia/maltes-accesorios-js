@@ -3,6 +3,12 @@
 let precioTotal = document.getElementById("precio-total");
 let precioActual = 0;
 
+sessionStorage.setItem('precioTotal', precioActual)
+
+//carrito en session storage
+let carritoCompras = ""
+sessionStorage.setItem('carritoCompras', carritoCompras)
+
 //HTTP Request "GET" de ./productos.json
 let myRequest = new Request("./productos.json")
 fetch(myRequest)
@@ -22,6 +28,8 @@ let item3 = sessionStorage.getItem('3')
 let item4 = sessionStorage.getItem('4')
 let item5 = sessionStorage.getItem('5')
 let item6 = sessionStorage.getItem('6')
+let sumaPrecio = sessionStorage.getItem('precioTotal')
+console.log(sumaPrecio);
 
 // Change
 let input01  = document.getElementById("prod-name-1");
@@ -37,8 +45,7 @@ input05.innerText = JSON.parse(item5).producto;
 let input06  = document.getElementById("prod-name-6");
 input06.innerText = JSON.parse(item6).producto;
 
-// Eventos
-let padre = document.getElementById("carrito")
+
 
 // Boton 1
 let btn1 = document.getElementById("btn1");
@@ -64,10 +71,23 @@ btn5.onclick = () =>{ respuestaOk(btn5) }
 let btn6 = document.getElementById("btn6");
 btn6.onclick = () =>{ respuestaOk(btn6) }
 
+// Boton "Limpiar"
+let btnLimpiar = document.getElementById("clear")
+btnLimpiar.onclick = () => { respuestaLimpiar() }
+
+// Boton "Comprar"
+let btnComprar = document.getElementById("buy")
+btnComprar.onclick = () => { respuestaComprar() }
+
 function respuestaOk(id) {
-    let lineaCarrito = document.createElement("li")
+    let padre = document.getElementById("carrito")
+
+    let lineaCarrito = document.createElement('li')
+    lineaCarrito.id = "linea-carrito"
+
     let nombreProducto;
     let precioProducto;
+
     switch (id) {
         case btn1: 
             nombreProducto = JSON.parse(item1).producto;
@@ -106,8 +126,10 @@ function respuestaOk(id) {
     precioActual += precioProducto;
     console.log(precioActual);
     precioTotal.innerHTML = precioActual
+
     //Almaceno TOTAL en Storage para luego darle una funcionalidad
     sessionStorage.setItem('precioTotal', precioActual)
+
     //Si precioActual es distinto que 0 aparece el carrito
     chequearPrecio()
 
@@ -123,7 +145,6 @@ function respuestaOk(id) {
         icon: 'success',
         title: 'Agregaste un producto al carrito'
         })
-        
 }
 
 let divCarrito = document.getElementsByClassName("carrito-compras");
@@ -140,8 +161,44 @@ function mostrarCarrito() {
     document.getElementById("carrito-compras").style.display = 'block';
 }
 
+function respuestaComprar() {
+    Swal.fire({
+        title: '¿Finalizar compra?',
+        text: `Realizar compra por un total de $${precioActual}`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#FCCEFE',
+        cancelButtonColor: '#919191',
+        confirmButtonText: 'Aceptar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            '¡Felicitaciones!',
+            'Has efectuado la compra correctamente',
+            'success'
+          )
+        }
+      })
+}
 
-//Desestructuracion
+function respuestaLimpiar() {
+    precioActual = 0
+    precioTotal.innerHTML = precioActual
+    sessionStorage.setItem('precioTotal', precioActual)
+
+    var lista = document.getElementById("carrito");
+    lista.remove()
+    
+    let tomoDiv = document.getElementById("carrito-general");
+    console.log(tomoDiv);
+    let recuperoUl = document.createElement('ul')
+    recuperoUl.id = "carrito"
+    console.log(recuperoUl);
+    tomoDiv.appendChild(recuperoUl);
+}
+
+/*
+//Desestructuracion - Utilizado únicamente para desafío
 const nombres = ["Aros Swarovski", "Cjto. corazón Cristal", "Argollitas con bolitas", "Anillo luna"]
 
 const [a, b] = nombres
@@ -149,3 +206,4 @@ const [a, b] = nombres
 console.log(a) // "Aros Swarovski"
 console.log(b) // "Cjto. corazón Cristal"
 console.log(...nombres); // Aros Swarovski Cjto. corazón Cristal Argollitas con bolitas Anillo luna
+*/

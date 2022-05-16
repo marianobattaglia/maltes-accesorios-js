@@ -399,6 +399,7 @@ button:focus, .button:focus {
 /* GRID PRODUCTOS */
 .navbar {
     grid-area: navbar;
+    min-width: 200px;
     .barra-flex {
         .carrito-compras {
             padding-top: 2rem;
@@ -407,12 +408,30 @@ button:focus, .button:focus {
                 margin: 0;
                 font-style: italic;
             }
+            ul {
+                padding-left: 2px;
+                margin: 0;
+            }
             li {
                 font-weight: bold;
             }
             #totales {
                 display: flex;
                 justify-content: space-between;
+            }
+            .botones-carrito {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                width: 50px;
+                text-align: center;
+                padding-top: 1rem;
+                .clear {
+                    margin: 0 5px 0 5px;
+                }
+                .buy {
+                    margin: 0 5px 0 5px;
+                }
             }
         }
         #carrito {

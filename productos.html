@@ -105,9 +105,10 @@
                 <!-- Carrito de compras -->
                 <div class="carrito-compras" id="carrito-compras">
                     <nav class="carrito"> 
-                        <div class="barra-flex" id="carrito">
+                        <div class="barra-flex" id="carrito-general">
                             <h5>Carrito de compras:</h3>
                             <p>Productos seleccionados:</p>
+                            <ul id="carrito"></ul>
                         </div>
                         <hr class="m-0">
                         <div class="barra-flex" id="totales">
@@ -115,6 +116,10 @@
                             <p id="monto-total">$ <strong id="precio-total">0</strong></p>
                         </div>
                     </nav>
+                    <div class="botones-carrito">
+                        <button class="clear" id="clear">Limpiar</button>
+                        <button class="buy" id="buy">Comprar</button>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -166,7 +171,6 @@
             <h6 class="mb-1">3 cuotas de $720</h6>
             <button class="btn-comprar" id="btn6">Comprar</button>
         </div>
-
 
     </div>
 
