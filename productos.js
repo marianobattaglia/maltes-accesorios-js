@@ -2,19 +2,18 @@
 //Variables DOM 
 let precioTotal = document.getElementById("precio-total");
 let precioActual = 0;
-
-sessionStorage.setItem('precioTotal', precioActual)
+localStorage.setItem('precioTotal', precioActual)
 
 //carrito en session storage
 let carritoCompras = ""
-sessionStorage.setItem('carritoCompras', carritoCompras)
+localStorage.setItem('carritoCompras', carritoCompras)
 
 //HTTP Request "GET" de ./productos.json
 let myRequest = new Request("./productos.json")
 fetch(myRequest)
 .then((resp) => resp.json())
 .then(data => {
-    const guardarLocal = (clave, valor) => { sessionStorage.setItem(clave, valor) };
+    const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
     //Almacenar producto por producto
     for (const producto of data) {
         guardarLocal(producto.id, JSON.stringify(producto));
@@ -22,14 +21,15 @@ fetch(myRequest)
 })
 
 // Genero variables tomando los elementos JSON para luego utilizarlos en el DOM
-let item1 = sessionStorage.getItem('1')
-let item2 = sessionStorage.getItem('2')
-let item3 = sessionStorage.getItem('3')
-let item4 = sessionStorage.getItem('4')
-let item5 = sessionStorage.getItem('5')
-let item6 = sessionStorage.getItem('6')
-let sumaPrecio = sessionStorage.getItem('precioTotal')
+let item1 = localStorage.getItem('1')
+let item2 = localStorage.getItem('2')
+let item3 = localStorage.getItem('3')
+let item4 = localStorage.getItem('4')
+let item5 = localStorage.getItem('5')
+let item6 = localStorage.getItem('6')
+let sumaPrecio = localStorage.getItem('precioTotal')
 console.log(sumaPrecio);
+console.log(item1.producto);
 
 // Change
 let input01  = document.getElementById("prod-name-1");
@@ -44,8 +44,6 @@ let input05  = document.getElementById("prod-name-5");
 input05.innerText = JSON.parse(item5).producto;
 let input06  = document.getElementById("prod-name-6");
 input06.innerText = JSON.parse(item6).producto;
-
-
 
 // Boton 1
 let btn1 = document.getElementById("btn1");
@@ -128,7 +126,7 @@ function respuestaOk(id) {
     precioTotal.innerHTML = precioActual
 
     //Almaceno TOTAL en Storage para luego darle una funcionalidad
-    sessionStorage.setItem('precioTotal', precioActual)
+    localStorage.setItem('precioTotal', precioActual)
 
     //Si precioActual es distinto que 0 aparece el carrito
     chequearPrecio()
@@ -162,48 +160,49 @@ function mostrarCarrito() {
 }
 
 function respuestaComprar() {
-    Swal.fire({
-        title: '¿Finalizar compra?',
-        text: `Realizar compra por un total de $${precioActual}`,
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#FCCEFE',
-        cancelButtonColor: '#919191',
-        confirmButtonText: 'Aceptar'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            '¡Felicitaciones!',
-            'Has efectuado la compra correctamente',
-            'success'
-          )
-        }
-      })
+
+    if (precioActual === 0) {
+        Swal.fire({
+            title: 'Carrito vacio',
+            text: 'Por favor seleccione al menos un producto para continuar',
+            icon: 'warning',
+            confirmButtonColor: '#FCCEFE',
+          })
+    } else {
+        Swal.fire({
+            title: '¿Finalizar compra?',
+            text: `Realizar compra por un total de $${precioActual}`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#FCCEFE',
+            cancelButtonColor: '#919191',
+            confirmButtonText: 'Aceptar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                '¡Felicitaciones!',
+                'Has efectuado la compra correctamente',
+                'success'
+              )
+              console.log("Se realizó la compra");
+              respuestaLimpiar()
+            }
+          })
+    }   
 }
 
 function respuestaLimpiar() {
     precioActual = 0
     precioTotal.innerHTML = precioActual
-    sessionStorage.setItem('precioTotal', precioActual)
+    localStorage.setItem('precioTotal', precioActual)
 
     var lista = document.getElementById("carrito");
     lista.remove()
     
     let tomoDiv = document.getElementById("carrito-general");
-    console.log(tomoDiv);
     let recuperoUl = document.createElement('ul')
     recuperoUl.id = "carrito"
-    console.log(recuperoUl);
     tomoDiv.appendChild(recuperoUl);
+
+    console.log("Se ha limpiado el carrito");
 }
-
-/*
-//Desestructuracion - Utilizado únicamente para desafío
-const nombres = ["Aros Swarovski", "Cjto. corazón Cristal", "Argollitas con bolitas", "Anillo luna"]
-
-const [a, b] = nombres
-
-console.log(a) // "Aros Swarovski"
-console.log(b) // "Cjto. corazón Cristal"
-console.log(...nombres); // Aros Swarovski Cjto. corazón Cristal Argollitas con bolitas Anillo luna
-*/
